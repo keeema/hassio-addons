@@ -1,0 +1,4 @@
+---
+build_from:
+  aarch64: "rogerfar/rdtclient:latest"
+  amd64: "rogerfar/rdtclient:latest"

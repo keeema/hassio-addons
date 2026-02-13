@@ -1,0 +1,25 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Add-on: RDT-Client
+# Reads HA add-on options and sets environment variables
+# ==============================================================================
+
+source /usr/lib/bashio/bashio.sh
+
+bashio::log.info "Configuring RDT-Client for Home Assistant..."
+
+# Read options
+HA_TZ=$(bashio::config 'TZ')
+
+# Run as root (0:0) so files are accessible by all add-ons
+printf '%s' "0" > /var/run/s6/container_environment/PUID
+printf '%s' "0" > /var/run/s6/container_environment/PGID
+printf '%s' "${HA_TZ}" > /var/run/s6/container_environment/TZ
+
+bashio::log.info "TZ=${HA_TZ}, running as root for universal file access"
+
+# Ensure database directory exists
+mkdir -p /data/db
+
+bashio::log.info "Configuration complete. Media is available at /media, shared storage at /share."

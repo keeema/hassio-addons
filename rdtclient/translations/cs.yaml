@@ -1,0 +1,8 @@
+---
+configuration:
+  TZ:
+    name: "Casova zona"
+    description: >-
+      Casova zona kontejneru (napr. Europe/Prague, America/New_York).
+network:
+  6500/tcp: "Webove rozhrani"

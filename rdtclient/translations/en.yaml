@@ -1,0 +1,8 @@
+---
+configuration:
+  TZ:
+    name: Timezone
+    description: >-
+      Timezone for the container (e.g., Europe/Prague, America/New_York).
+network:
+  6500/tcp: Web UI
