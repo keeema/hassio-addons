@@ -1,7 +1,7 @@
 ---
 name: "RDT-Client"
 description: "Real-Debrid/AllDebrid/Premiumize torrent client proxy for Sonarr/Radarr"
-version: "1.0.0"
+version: "1.0.1"
 slug: "rdtclient"
 url: "https://github.com/keeema/hassio-addons/tree/main/rdtclient"
 arch:
@@ -18,8 +18,7 @@ map:
   - media:rw
   - share:rw
 webui: "http://[HOST]:[PORT:6500]"
-ingress: false
-panel_icon: "mdi:download"
+watchdog: "http://[HOST]:[PORT:6500]"
 options:
   TZ: "Europe/Prague"
 schema:

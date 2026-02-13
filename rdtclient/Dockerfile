@@ -14,6 +14,10 @@ COPY rootfs /
 # Ensure init script is executable
 RUN chmod +x /etc/s6-overlay/s6-rc.d/init-ha-config/run
 
+# Health check so HA Supervisor knows the addon is running
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:6500/ || exit 1
+
 # Labels
 ARG BUILD_ARCH
 ARG BUILD_DATE
