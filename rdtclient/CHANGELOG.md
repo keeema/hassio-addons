@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+- Fix: Set PUID=0/PGID=0 via ENV in Dockerfile so LinuxServer base picks it up
+  during user creation (fixes "Access denied" on /media and /share)
+
 ## 1.0.1
 
 - Add HEALTHCHECK and watchdog for proper running status detection

@@ -1,6 +1,10 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
+# Run as root so files on mapped volumes are accessible by all add-ons
+ENV PUID=0
+ENV PGID=0
+
 # Install jq and bashio for reading Home Assistant options
 RUN apk add --no-cache jq \
     && mkdir -p /usr/lib/bashio \
